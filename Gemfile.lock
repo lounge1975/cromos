@@ -165,5 +165,5 @@ DEPENDENCIES
   memcache-client (~> 1.8.5)
   railties (~> 3.0.4)
   rspec-rails (~> 2.6.0)
-  spork
+  spork (~> 0.8.5)
   thin

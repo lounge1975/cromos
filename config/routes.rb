@@ -1,4 +1,6 @@
 Cromos::Application.routes.draw do
+  resources :interviews
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -45,7 +45,7 @@ group(:development, :test) do
 
   # Uncomment this if you want to use rspec for testing your application
 
-  gem "spork"
+  gem "spork", '~> 0.8.5'
   gem 'rspec-rails', '~> 2.6.0'
 
   # To get a detailed overview about what queries get issued and how long they take
