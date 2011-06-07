@@ -35,11 +35,18 @@ gem 'dm-aggregates',        DM_VERSION
 gem 'dm-timestamps',        DM_VERSION
 gem 'dm-observer',          DM_VERSION
 
+gem 'dm-devise', '~> 1.3.0'
+gem 'jquery-rails', '~> 1.0.5'
+gem 'memcache-client', '~> 1.8.5'
+
+gem 'thin'
+
 group(:development, :test) do
 
   # Uncomment this if you want to use rspec for testing your application
 
-  # gem 'rspec-rails', '~> 2.0.1'
+  gem "spork"
+  gem 'rspec-rails', '~> 2.6.0'
 
   # To get a detailed overview about what queries get issued and how long they take
   # have a look at rails_metrics. Once you bundled it, you can run
