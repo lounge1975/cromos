@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class InterviewsController < ApplicationController
   # GET /interviews
   # GET /interviews.xml
