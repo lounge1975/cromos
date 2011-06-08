@@ -1,5 +1,13 @@
 Cromos::Application.routes.draw do
+
+  devise_for :users
+
+  get "welcome/index"
+
+  get 'interviews', :to => 'interviews#index', :as => :user_root
   resources :interviews
+
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

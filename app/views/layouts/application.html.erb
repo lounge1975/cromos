@@ -8,6 +8,10 @@
 </head>
 <body>
 
+  <%= link_to('Sign out', [:destroy, current_user, :session],:class => 'signOut') if current_user%>
+
+  <%= content_tag(:p, notice, :class => 'notice') %>
+  <%= content_tag(:p, alert, :class => 'alert') %>  
 <%= yield %>
 
 </body>
