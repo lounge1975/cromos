@@ -11,7 +11,7 @@ class Interview
   property :updated_at, DateTime
 
   before(:save) do
-    self.disp_no = Interview.max(:disp_no) + 1
+    self.disp_no = Interview.max(:disp_no).to_i + 1
   end
 
 end

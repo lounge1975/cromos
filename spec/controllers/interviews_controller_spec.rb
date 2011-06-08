@@ -20,6 +20,10 @@ require 'spec_helper'
 
 describe InterviewsController do
 
+  before(:each) do
+    Interview.all.destroy
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Interview. As you add validations to Interview, be sure to
   # update the return value of this method accordingly.

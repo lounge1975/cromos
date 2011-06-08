@@ -57,6 +57,7 @@ class InterviewsController < ApplicationController
   # PUT /interviews/1
   # PUT /interviews/1.xml
   def update
+p ["params", params]
     @interview = Interview.get(params[:id])
 
     respond_to do |format|
