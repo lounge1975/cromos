@@ -1,5 +1,7 @@
 Cromos::Application.routes.draw do
 
+  resources :diagnoses
+
   devise_for :users
 
   get "welcome/index"

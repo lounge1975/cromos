@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -21,3 +22,28 @@ File.open("./db/user.csv") {|f|
                  :password_confirmation => data[7])
   end
 }
+
+# interview data import
+File.open("./db/interview.csv") {|f|
+  while l = f.gets
+    data = l.rstrip.split(',')
+    Interview.create!(:disp_no => data[0],
+                      :note => data[1])
+  end
+}
+
+# diagnosis data import
+File.open("./db/diagnosis.csv") {|f|
+  while l = f.gets
+    data = l.rstrip.split(',')
+    Diagnosis.create!(:name => data[0],
+                      :description => data[1])
+  end
+}
+
+i = Interview.first
+d = Diagnosis.first
+i.diagnoses.push(d)
+i.save
+        
+p Interview.first.diagnoses
