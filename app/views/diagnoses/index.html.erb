@@ -12,7 +12,7 @@
 <% @diagnoses.each do |diagnosis| %>
   <tr>
     <td><%= diagnosis.name %></td>
-    <td><%= diagnosis.describe %></td>
+    <td><%= diagnosis.description %></td>
     <td><%= link_to 'Show', diagnosis %></td>
     <td><%= link_to 'Edit', edit_diagnosis_path(diagnosis) %></td>
     <td><%= link_to 'Destroy', diagnosis, :confirm => 'Are you sure?', :method => :delete %></td>

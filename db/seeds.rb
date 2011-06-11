@@ -44,6 +44,8 @@ File.open("./db/diagnosis.csv") {|f|
 i = Interview.first
 d = Diagnosis.first
 i.diagnoses.push(d)
+d = Diagnosis.last
+i.diagnoses.push(d)
 i.save
         
 p Interview.first.diagnoses
