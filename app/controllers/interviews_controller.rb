@@ -57,7 +57,6 @@ class InterviewsController < ApplicationController
   # PUT /interviews/1
   # PUT /interviews/1.xml
   def update
-p ["params", params]
     @interview = Interview.get(params[:id])
 
     respond_to do |format|
@@ -81,5 +80,36 @@ p ["params", params]
       format.html { redirect_to(interviews_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def relation
+    @interview = Interview.get(params[:id])
+
+    respond_to do |format|
+      format.html { render }
+      format.xml  { render :xml => @interview }
+    end    
+  end
+
+  def search_diagnosis
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.xml  { render :xml => @interview }
+    end    
+  end
+
+  def search_diagnosis_start
+    @diagnoses = Diagnosis.all(:name.like => "%#{params[:name]}%")
+    render :partial => "search_diagnosis_result"
+  end
+
+  def add_relation
+p ["params", params]
+    @interview = Interview.get(params[:interview_id])
+    diagnosis = Diagnosis.get(params[:diagnosis_id])
+    @interview.diagnoses.push(diagnosis)
+    @interview.save
+
+    render :partial => "diagnoses_list"
   end
 end

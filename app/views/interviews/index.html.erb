@@ -9,6 +9,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @interviews.each do |interview| %>
@@ -20,6 +21,7 @@
     <td><%= link_to 'Show', interview %></td>
     <td><%= link_to 'Edit', edit_interview_path(interview) %></td>
     <td><%= link_to 'Destroy', interview, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Relation', {:action => :relation, :id => interview.id} %></td>
   </tr>
 <% end %>
 </table>

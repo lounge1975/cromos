@@ -7,7 +7,14 @@ Cromos::Application.routes.draw do
   get "welcome/index"
 
   get 'interviews', :to => 'interviews#index', :as => :user_root
-  resources :interviews
+  resources :interviews do
+    collection do
+      get 'relation'
+      get 'search_diagnosis'
+      post 'search_diagnosis_start'
+      post 'add_relation'
+    end
+  end
 
   root :to => "welcome#index"
 

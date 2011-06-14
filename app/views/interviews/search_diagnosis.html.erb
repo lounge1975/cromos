@@ -1,0 +1,15 @@
+this is search_diagnosis
+
+<div class="field float-left">
+  <%= label_tag :search_diagnosis_name %><br />
+  <%= text_field_tag :search_diagnosis_name %>
+</div>
+
+<div class="field float-left">
+  <%= button_to_function "search", "common.searchDiagnosisStart()" %>
+</div>
+
+
+<%= content_tag :div, :id => "search_diagnosis_result" do %>
+  <%= render(:partial => "search_diagnosis_result") %>
+<% end =%>

@@ -1,0 +1,7 @@
+<p>this is result</p>
+
+<% if @diagnoses %>
+  <% @diagnoses.each do |diagnosis| %>
+    <p><%= diagnosis.name %>:<%= link_to_function "set", "common.addRelation(#{diagnosis.id})" %></p>
+  <% end %>
+<% end %>
