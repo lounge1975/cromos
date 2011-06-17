@@ -10,6 +10,26 @@ module DataMapper
     # standard sub-modules (Quoting, Coersion and Queries) in your own Adapter.
     # You can extend and overwrite these copies without affecting the originals.
     class DataObjectsAdapter < AbstractAdapter
+
+      # Execute non-SELECT SQL query     
+      #
+      # @param [String] statement
+      #   the SQL statement
+      # @param [Array] *bind_values
+      #   optional bind values to merge into the statement
+      #
+      # @return [DataObjects::Result]
+      #   result with number of affected rows, and insert id if any
+      #
+      # @api public
+      def execute(statement, *bind_values)
+        with_connection do |connection|
+          command = connection.create_command(statement)
+p [command]
+          command.execute_non_query(*bind_values)
+        end
+      end
+
       protected
 
       # @api private

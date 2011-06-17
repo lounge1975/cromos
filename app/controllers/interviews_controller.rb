@@ -104,12 +104,21 @@ class InterviewsController < ApplicationController
   end
 
   def add_relation
-p ["params", params]
     @interview = Interview.get(params[:interview_id])
     diagnosis = Diagnosis.get(params[:diagnosis_id])
     @interview.diagnoses.push(diagnosis)
     @interview.save
 
+    render :partial => "diagnoses_list"
+  end
+
+  def delete_relation
+    join = DiagnosisInterview.first(:interview_id => params[:interview_id],
+                                    :diagnosis_id => params[:diagnosis_id])
+
+    join.destroy unless join.nil?
+
+    @interview = Interview.get(params[:interview_id])
     render :partial => "diagnoses_list"
   end
 end

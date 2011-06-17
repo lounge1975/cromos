@@ -16,7 +16,7 @@ Common.prototype = {
     },
 
     searchDiagnosisStart: function(){
-        var name = $("#search_diagnosis_name").val();
+        var name = $(".search_diagnosis_name:last").val();
         var params = "name=" + name;
         $.post("/interviews/search_diagnosis_start/",
               params,
@@ -30,6 +30,17 @@ Common.prototype = {
         var params = "interview_id=" + interviewId;
         params += "&diagnosis_id=" + diagnosisId;
         $.post("/interviews/add_relation/",
+              params,
+              function(html){
+                  $("#interview_diagnoses_list").html(html);
+              });
+    },
+
+    deleteRelation: function(diagnosisId){
+        var interviewId = $("#interview_id").val();
+        var params = "interview_id=" + interviewId;
+        params += "&diagnosis_id=" + diagnosisId;
+        $.post("/interviews/delete_relation/",
               params,
               function(html){
                   $("#interview_diagnoses_list").html(html);

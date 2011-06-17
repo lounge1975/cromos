@@ -13,7 +13,7 @@ class Interview
 
   has n, :diagnoses, :through => Resource
 
-  before(:save) do
+  before(:create) do
     self.disp_no = Interview.max(:disp_no).to_i + 1
   end
 

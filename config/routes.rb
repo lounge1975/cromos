@@ -13,6 +13,7 @@ Cromos::Application.routes.draw do
       get 'search_diagnosis'
       post 'search_diagnosis_start'
       post 'add_relation'
+      post 'delete_relation'
     end
   end
 
