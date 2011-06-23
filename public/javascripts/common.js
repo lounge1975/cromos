@@ -45,6 +45,38 @@ Common.prototype = {
               function(html){
                   $("#interview_diagnoses_list").html(html);
               });
+    },
+
+    searchInterviewStart: function(){
+        var note = $(".search_interview_note:last").val();
+        var params = "note=" + note;
+        $.post("/diagnoses/search_interview_start/",
+              params,
+              function(html){
+                  $("#search_interview_result").html(html);
+              });
+    },
+
+    addRelationToInterviews: function(interviewId){
+        var diagnosisId = $("#diagnosis_id").val();
+        var params = "interview_id=" + interviewId;
+        params += "&diagnosis_id=" + diagnosisId;
+        $.post("/diagnoses/add_relation/",
+              params,
+              function(html){
+                  $("#diagnosis_interviews_list").html(html);
+              });
+    },
+    
+    deleteRelationToInterviews: function(interviewId){
+        var diagnosisId = $("#diagnosis_id").val();
+        var params = "interview_id=" + interviewId;
+        params += "&diagnosis_id=" + diagnosisId;
+        $.post("/diagnoses/delete_relation/",
+              params,
+              function(html){
+                  $("#diagnosis_interviews_list").html(html);
+              });
     }
 }
 

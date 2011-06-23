@@ -3,7 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Describe</th>
+    <th>Description</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,6 +17,7 @@
     <td><%= link_to 'Show', diagnosis %></td>
     <td><%= link_to 'Edit', edit_diagnosis_path(diagnosis) %></td>
     <td><%= link_to 'Destroy', diagnosis, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Relation', {:action => :relation, :id => diagnosis.id} %></td>
   </tr>
 <% end %>
 </table>

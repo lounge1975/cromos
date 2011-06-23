@@ -81,4 +81,45 @@ class DiagnosesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def relation
+    @diagnosis = Diagnosis.get(params[:id])
+
+    respond_to do |format|
+      format.html { render }
+      format.xml  { render :xml => @diagnosis }
+    end    
+  end
+
+  def search_interview
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.xml  { render :xml => @diagnosis }
+    end    
+  end
+
+  def search_interview_start
+    @interviews = Interview.all(:note.like => "%#{params[:note]}%")
+    render :partial => "search_interview_result"
+  end
+
+  def add_relation
+    @diagnosis = Diagnosis.get(params[:diagnosis_id])
+    interview = Interview.get(params[:interview_id])
+    @diagnosis.interviews.push(interview)
+    @diagnosis.save
+
+    render :partial => "interviews_list"
+  end
+
+  def delete_relation
+    join = DiagnosisInterview.first(:interview_id => params[:interview_id],
+                                    :diagnosis_id => params[:diagnosis_id])
+
+    join.destroy unless join.nil?
+
+    @diagnosis = Diagnosis.get(params[:diagnosis_id])
+    render :partial => "interviews_list"
+  end
+
 end

@@ -1,6 +1,14 @@
 Cromos::Application.routes.draw do
 
-  resources :diagnoses
+  resources :diagnoses do
+    collection do
+      get 'relation'
+      get 'search_interview'
+      post 'search_interview_start'
+      post 'add_relation'
+      post 'delete_relation'
+    end
+  end
 
   devise_for :users
 
