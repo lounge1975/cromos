@@ -9,12 +9,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-  <%= link_to('Sign out', [:destroy, current_user, :session],:class => 'signOut') if current_user%>
-
+<%= content_tag(:div, :id => 'wrapper') do %>
+  <%= render 'shared/header' %>
+  
   <%= content_tag(:p, notice, :class => 'notice') %>
-  <%= content_tag(:p, alert, :class => 'alert') %>  
-<%= yield %>
+  <%= content_tag(:p, alert, :class => 'alert') %>
+
+  <%= yield %>
+
+  <%= render 'shared/footer' %>
+<% end =%>
 
 </body>
 </html>

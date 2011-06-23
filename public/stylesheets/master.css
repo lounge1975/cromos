@@ -1,0 +1,44 @@
+/* common */
+.clear {
+  clear: both;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+#wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+#header {
+}
+#header a:link.signOut{
+  float: right;
+}
+#footer {
+  text-align: center;
+}
+/* menu */
+#manu-index {
+  width: 540px;
+  height: 600px;
+  margin: 0 auto;
+}
+#select-men {
+  display: block;
+  float: left;
+  width: 250px;
+  height: 250px;
+  background-color :#48b;
+  margin: 100px 10px;
+  color: #fff;
+}
+#select-women {
+  display: block;
+  float: left;
+  width: 250px;
+  height: 250px;
+  background-color :#f44;
+  margin: 100px 10px;
+  color: #fff;
+}

@@ -1,5 +1,7 @@
 Cromos::Application.routes.draw do
 
+  get "menu/index"
+
   resources :diagnoses do
     collection do
       get 'relation'
@@ -25,7 +27,8 @@ Cromos::Application.routes.draw do
     end
   end
 
-  root :to => "welcome#index"
+#  root :to => "welcome#index"
+  root :to => "menu#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
