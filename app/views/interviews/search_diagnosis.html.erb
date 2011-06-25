@@ -1,13 +1,13 @@
-this is search_diagnosis
-
+<%= form_tag({:action => "ajax_search_diagnosis_start"}, :remote => true) do %>
 <div class="field float-left">
-  <%= label_tag :search_diagnosis_name %><br />
-  <%= text_field_tag :search_diagnosis_name, "", :class => "search_diagnosis_name" %>
+  <%= label_tag :diagnosis_name %><br />
+  <%= text_field_tag :name %>
 </div>
 
 <div class="field float-left">
-  <%= button_to_function "search", "common.searchDiagnosisStart()" %>
+  <%= submit_tag "search"  %>
 </div>
+<% end =%>
 
 
 <%= content_tag :div, :id => "search_diagnosis_result" do %>

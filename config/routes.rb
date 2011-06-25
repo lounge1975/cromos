@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 Cromos::Application.routes.draw do
 
   get "menu/index"
@@ -21,7 +22,8 @@ Cromos::Application.routes.draw do
     collection do
       get 'relation'
       get 'search_diagnosis'
-      post 'search_diagnosis_start'
+#      post 'search_diagnosis_start'
+      post 'ajax_search_diagnosis_start'
       post 'add_relation'
       post 'delete_relation'
     end

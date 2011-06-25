@@ -1,11 +1,11 @@
 <%= content_tag :div, :id => "manu-index" do %>
 
-  <%= content_tag :div, :id => "select-men" do %>
-    Men
+  <%= content_tag :div, :id => "select-men", :class => "select-sex" do %>
+    <%= link_to "Men", "" %>
   <% end =%>
 
-  <%= content_tag :div, :id => "select-women" do %>
-    Women
+  <%= content_tag :div, :id => "select-women", :class => "select-sex" do %>
+    <%= link_to "Women", "" %>
   <% end =%>
 
   <%= content_tag :div, "", :class => "clear"%>

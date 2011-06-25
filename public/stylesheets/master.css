@@ -27,18 +27,33 @@
 #select-men {
   display: block;
   float: left;
-  width: 250px;
-  height: 250px;
-  background-color :#48b;
+  /*background-color :#48b;*/
+  background: -moz-linear-gradient(top, #ade, #48b);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ade), to(#48b));
   margin: 100px 10px;
   color: #fff;
 }
 #select-women {
   display: block;
   float: left;
-  width: 250px;
-  height: 250px;
-  background-color :#f44;
+  /*background-color :#f44;*/
+  background: -moz-linear-gradient(top, #fa7, #f44);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fa7), to(#f44));
   margin: 100px 10px;
   color: #fff;
+}
+.select-sex a:link{
+  display: block;
+  float: left;
+  width: 250px;
+  height: 250px;
+  color: #fff;
+}
+.select-sex a:hover{
+  display: block;
+  float: left;
+  width: 250px;
+  height: 250px;
+  color: #000;
+  background-color :#fed;
 }

@@ -97,11 +97,20 @@ class InterviewsController < ApplicationController
       format.xml  { render :xml => @interview }
     end    
   end
-
+=begin
   def search_diagnosis_start
+p ["search_diagnosis_start", params]
     @diagnoses = Diagnosis.all(:name.like => "%#{params[:name]}%")
     render :partial => "search_diagnosis_result"
   end
+=end
+
+  def ajax_search_diagnosis_start
+    @diagnoses = Diagnosis.all(:name.like => "%#{params[:name]}%")
+
+    render "ajax_search_diagnosis_start.js.erb"
+  end
+
 
   def add_relation
     @interview = Interview.get(params[:interview_id])

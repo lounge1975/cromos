@@ -14,7 +14,7 @@ Common.prototype = {
                                height: 600,
                                objectType: 'ajax' });
     },
-
+/*
     searchDiagnosisStart: function(){
         var name = $(".search_diagnosis_name:last").val();
         var params = "name=" + name;
@@ -24,6 +24,7 @@ Common.prototype = {
                   $("#search_diagnosis_result").html(html);
               });
     },
+*/
     
     addRelation: function(diagnosisId){
         var interviewId = $("#interview_id").val();
