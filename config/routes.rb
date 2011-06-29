@@ -2,6 +2,7 @@
 Cromos::Application.routes.draw do
 
   get "menu/index"
+  get "menu/interviews"
 
   resources :diagnoses do
     collection do
