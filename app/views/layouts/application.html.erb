@@ -11,6 +11,7 @@
 <body>
 <%= content_tag(:div, :id => 'wrapper') do %>
   <%= render 'shared/header' %>
+  <%= content_tag :div, "", :class => "clear" %>
   
   <%= content_tag(:p, notice, :class => 'notice') %>
   <%= content_tag(:p, alert, :class => 'alert') %>

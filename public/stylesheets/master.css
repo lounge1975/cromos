@@ -11,7 +11,9 @@
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -50px;
+  margin: 0 auto -25px;
+  overflow: hidden !important;
+  overflow: visible;
 }
 #header {
 }
@@ -19,7 +21,7 @@
   float: right;
 }
 #footer {
-  height: 50px;
+  height: 25px;
   text-align: center;
 }
 /* menu */
@@ -61,8 +63,13 @@
   height: 100%;
   background: -moz-linear-gradient(top, #fa7, #f44);
   background: -webkit-gradient(linear, left top, left bottom, from(#fa7), to(#f44));
+  padding-bottom: 32767px !important;  
+  margin-bottom: -32767px !important;   
+  padding-bottom: 0;  
+  margin-bottom: 0;
 }
 #interviews-check{
   display: block;
   float: left;
+
 }
