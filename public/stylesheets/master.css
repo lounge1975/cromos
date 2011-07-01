@@ -28,6 +28,9 @@
   float: right;
   margin: 0 20px;
 }
+.title {
+  font-weight: bold;
+}
 /* menu */
 #manu-index {
   width: 540px;
@@ -86,5 +89,15 @@
 #interviews-check{
   display: block;
   float: left;
-
+}
+#interviews-check-title {
+  font-weight: bold;
+  margin: 10px;
+}
+#interviews-check-list {
+  margin-left: 10px;
+}
+#interviews-check-submit {
+  float: left;
+  margin: 10px;
 }

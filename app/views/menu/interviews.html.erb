@@ -1,11 +1,23 @@
-<%= content_tag :div, :id => "interviews-menu" do %>
-  <%= @type %>
-<% end =%>
-<%= content_tag :div, :id => "interviews-check" do %>
-  <% @interviews.each do |interview| %>
-    <%= check_box_tag "interviews", interview.id %>
-    <%= label_tag interview.note %>
-    <%= tag :br %>
-  <% end %>
-<% end =%>
-<%= content_tag :div, "", :class => "clear" %>
+<% form_tag('/menu/interviews_to_result') do %>
+
+  <%= render({:partial => "interviews_menu"}) %>
+  <%= content_tag :div, :id => "interviews-check" do %>
+    <%= content_tag :div, "該当する症状を選択してください。", :id => "interviews-check-title" %>
+    <%= content_tag :div, "", :class => "clear" %>
+
+    <%= content_tag :div, :id => "interviews-check-list" do %>
+      <% @interviews.each do |interview| %>
+        <%= check_box_tag "interviews[#{interview.id}]", interview.id %>
+        <%= label_tag "interviews[#{interview.id}]", interview.note %>
+        <%= tag :br %>
+      <% end %>
+    <% end =%>
+  <% end =%>
+
+  <%= content_tag :div, :id => "interviews-check-submit" do %>
+    <%= submit_tag "決定" %>
+  <% end =%>
+
+  <%= content_tag :div, "", :class => "clear" %>
+
+<% end %>

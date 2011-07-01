@@ -8,4 +8,9 @@ class MenuController < ApplicationController
     @interviews = Interview.all
   end
 
+  def interviews_to_result
+    @type = params[:type]
+    @interviews = Interview.all
+  end
+
 end
