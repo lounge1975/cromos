@@ -2,6 +2,7 @@
 Cromos::Application.routes.draw do
 
   get "menu/index"
+  match "menu/", :to => "menu#index"
   match "menu/interviews/:type", :to => "menu#interviews"
   match "menu/interviews_to_result", :to => "menu#interviews_to_result"
 

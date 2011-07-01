@@ -1,3 +1,12 @@
 <%= render({:partial => "interviews_menu"}) %>
 
-this is result
+<%= content_tag :div, :id => "interviews-result" do %>
+  <%= content_tag :div, "現在考えられる病名は以下の通りです。", :id => "interviews-check-title" %>
+  <%= content_tag :div, "", :class => "clear" %>
+  
+  <% @interviews.each do |interview| %>
+    <% interview.diagnoses.each do |diagnosis| %>
+      <%= diagnosis.name %><br />
+    <% end %>
+  <% end %>
+<% end =%>

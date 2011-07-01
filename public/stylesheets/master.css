@@ -101,3 +101,7 @@
   float: left;
   margin: 10px;
 }
+#interviews-result{
+  display: block;
+  float: left;
+}

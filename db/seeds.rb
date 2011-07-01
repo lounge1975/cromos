@@ -48,4 +48,3 @@ d = Diagnosis.last
 i.diagnoses.push(d)
 i.save
         
-p Interview.first.diagnoses
