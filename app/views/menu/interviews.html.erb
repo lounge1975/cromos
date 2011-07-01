@@ -1,7 +1,11 @@
 <%= content_tag :div, :id => "interviews-menu" do %>
-menu
+  <%= @type %>
 <% end =%>
 <%= content_tag :div, :id => "interviews-check" do %>
-check
+  <% @interviews.each do |interview| %>
+    <%= check_box_tag "interviews", interview.id %>
+    <%= label_tag interview.note %>
+    <%= tag :br %>
+  <% end %>
 <% end =%>
 <%= content_tag :div, "", :class => "clear" %>

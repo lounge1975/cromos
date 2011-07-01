@@ -24,6 +24,10 @@
   height: 25px;
   text-align: center;
 }
+#settings-menu { 
+  float: right;
+  margin: 0 20px;
+}
 /* menu */
 #manu-index {
   width: 540px;
@@ -38,6 +42,11 @@
   margin: 100px 10px;
   color: #fff;
 }
+#select-men a:hover{
+  background: -moz-linear-gradient(top, #ade, #48b);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ade), to(#48b));
+  color: #fff;
+}
 #select-women {
   display: block;
   float: left;
@@ -45,6 +54,11 @@
   background: -moz-linear-gradient(top, #fa7, #f44);
   background: -webkit-gradient(linear, left top, left bottom, from(#fa7), to(#f44));
   margin: 100px 10px;
+  color: #fff;
+}
+#select-women a:hover{
+  background: -moz-linear-gradient(top, #fa7, #f44);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fa7), to(#f44));
   color: #fff;
 }
 .select-sex a:link{
@@ -61,12 +75,13 @@
   width: 200px;
   min-height: 100%;
   height: 100%;
-  background: -moz-linear-gradient(top, #fa7, #f44);
-  background: -webkit-gradient(linear, left top, left bottom, from(#fa7), to(#f44));
+  background: -moz-linear-gradient(top, #999, #666);
+  background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#999));
   padding-bottom: 32767px !important;  
   margin-bottom: -32767px !important;   
   padding-bottom: 0;  
   margin-bottom: 0;
+  color: #fff;
 }
 #interviews-check{
   display: block;

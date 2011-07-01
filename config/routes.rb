@@ -2,7 +2,7 @@
 Cromos::Application.routes.draw do
 
   get "menu/index"
-  get "menu/interviews"
+  match "menu/interviews/:type", :to => "menu#interviews"
 
   resources :diagnoses do
     collection do
@@ -27,6 +27,7 @@ Cromos::Application.routes.draw do
       post 'ajax_search_diagnosis_start'
       post 'add_relation'
       post 'delete_relation'
+      get 'settings'
     end
   end
 

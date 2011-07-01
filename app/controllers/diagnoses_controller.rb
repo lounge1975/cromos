@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class DiagnosesController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /diagnoses
   # GET /diagnoses.xml
   def index

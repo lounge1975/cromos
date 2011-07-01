@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class InterviewsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /interviews
   # GET /interviews.xml
   def index
@@ -129,5 +131,8 @@ p ["search_diagnosis_start", params]
 
     @interview = Interview.get(params[:interview_id])
     render :partial => "diagnoses_list"
+  end
+
+  def settings
   end
 end
