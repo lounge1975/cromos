@@ -40,6 +40,7 @@ gem 'jquery-rails', '~> 1.0.5'
 gem 'memcache-client', '~> 1.8.5'
 
 gem 'thin'
+gem "rake", "0.9.2"
 
 group(:development, :test) do
 
