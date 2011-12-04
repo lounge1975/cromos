@@ -5,11 +5,11 @@ describe "diagnoses/index.html.erb" do
     assign(:diagnoses, [
       stub_model(Diagnosis,
         :name => "Name",
-        :describe => "MyText"
+        :description => "MyText"
       ),
       stub_model(Diagnosis,
         :name => "Name",
-        :describe => "MyText"
+        :description => "MyText"
       )
     ])
   end

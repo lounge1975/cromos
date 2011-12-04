@@ -20,10 +20,6 @@ require 'spec_helper'
 
 describe InterviewsController do
 
-  before(:each) do
-    Interview.all.destroy
-  end
-
   # This should return the minimal set of attributes required to create a valid
   # Interview. As you add validations to Interview, be sure to
   # update the return value of this method accordingly.
@@ -42,7 +38,7 @@ describe InterviewsController do
   describe "GET show" do
     it "assigns the requested interview as @interview" do
       interview = Interview.create! valid_attributes
-      get :show, :id => interview.id.to_s
+      get :show, :id => interview.id
       assigns(:interview).should eq(interview)
     end
   end
@@ -57,7 +53,7 @@ describe InterviewsController do
   describe "GET edit" do
     it "assigns the requested interview as @interview" do
       interview = Interview.create! valid_attributes
-      get :edit, :id => interview.id.to_s
+      get :edit, :id => interview.id
       assigns(:interview).should eq(interview)
     end
   end
@@ -129,7 +125,7 @@ describe InterviewsController do
         interview = Interview.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Interview.any_instance.stub(:save).and_return(false)
-        put :update, :id => interview.id.to_s, :interview => {}
+        put :update, :id => interview.id, :interview => {}
         assigns(:interview).should eq(interview)
       end
 
@@ -137,7 +133,7 @@ describe InterviewsController do
         interview = Interview.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Interview.any_instance.stub(:save).and_return(false)
-        put :update, :id => interview.id.to_s, :interview => {}
+        put :update, :id => interview.id, :interview => {}
         response.should render_template("edit")
       end
     end
@@ -147,13 +143,13 @@ describe InterviewsController do
     it "destroys the requested interview" do
       interview = Interview.create! valid_attributes
       expect {
-        delete :destroy, :id => interview.id.to_s
+        delete :destroy, :id => interview.id
       }.to change(Interview, :count).by(-1)
     end
 
     it "redirects to the interviews list" do
       interview = Interview.create! valid_attributes
-      delete :destroy, :id => interview.id.to_s
+      delete :destroy, :id => interview.id
       response.should redirect_to(interviews_url)
     end
   end

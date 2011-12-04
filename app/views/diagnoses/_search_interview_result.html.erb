@@ -1,7 +1,0 @@
-<p>this is result</p>
-
-<% if @interviews %>
-  <% @interviews.each do |interview| %>
-    <p><%= interview.note %>:<%= link_to_function "set", "common.addRelationToInterviews(#{interview.id})" %></p>
-  <% end %>
-<% end %>

@@ -1,8 +1,0 @@
-<div id="header">
-  <%= link_to('Sign out', destroy_user_session_path, :class => 'signOut') if current_user%>
-  <% if params[:controller] == 'menu' %>
-  <%= link_to(image_tag('title.jpg', :size => '280x100', :alt => 'cromos'),
-              {:controller => :menu, :action => :index}) %>
-  <%= link_to('settings', {:controller => :interviews, :action => :settings}, :id => 'settings-menu') %>
-  <% end %>
-</div>

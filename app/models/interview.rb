@@ -1,20 +1,10 @@
 # -*- coding: utf-8 -*-
-class Interview
+class Interview < ActiveRecord::Base
+#  has_and_belongs_to__many :diagnos
+  has_many :interviews_diagnoses
+  has_many :diagnoses, :through => :interviews_diagnoses
 
-  include DataMapper::Resource
-
-  property :id, Serial
-
-  property :disp_no, Integer, :unique => true, :default => 0
-  property :note, String
-
-  property :created_at, DateTime
-  property :updated_at, DateTime
-
-  has n, :diagnoses, :through => Resource
-
-  before(:create) do
-    self.disp_no = Interview.max(:disp_no).to_i + 1
-  end
-
+#  before(:create) do
+#    self.disp_no = Interview.maximum(:disp_no).to_i + 1
+#  end
 end

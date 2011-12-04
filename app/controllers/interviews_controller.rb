@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 class InterviewsController < ApplicationController
-  before_filter :authenticate_user!
-
   # GET /interviews
   # GET /interviews.xml
   def index
@@ -16,7 +14,7 @@ class InterviewsController < ApplicationController
   # GET /interviews/1
   # GET /interviews/1.xml
   def show
-    @interview = Interview.get(params[:id])
+    @interview = Interview.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +35,7 @@ class InterviewsController < ApplicationController
 
   # GET /interviews/1/edit
   def edit
-    @interview = Interview.get(params[:id])
+    @interview = Interview.find(params[:id])
   end
 
   # POST /interviews
@@ -59,10 +57,10 @@ class InterviewsController < ApplicationController
   # PUT /interviews/1
   # PUT /interviews/1.xml
   def update
-    @interview = Interview.get(params[:id])
+    @interview = Interview.find(params[:id])
 
     respond_to do |format|
-      if @interview.update(params[:interview])
+      if @interview.update_attributes(params[:interview])
         format.html { redirect_to(@interview, :notice => 'Interview was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -75,64 +73,12 @@ class InterviewsController < ApplicationController
   # DELETE /interviews/1
   # DELETE /interviews/1.xml
   def destroy
-    @interview = Interview.get(params[:id])
+    @interview = Interview.find(params[:id])
     @interview.destroy
 
     respond_to do |format|
       format.html { redirect_to(interviews_url) }
       format.xml  { head :ok }
     end
-  end
-
-  def relation
-    @interview = Interview.get(params[:id])
-
-    respond_to do |format|
-      format.html { render }
-      format.xml  { render :xml => @interview }
-    end    
-  end
-
-  def search_diagnosis
-    respond_to do |format|
-      format.html { render :layout => false }
-      format.xml  { render :xml => @interview }
-    end    
-  end
-=begin
-  def search_diagnosis_start
-p ["search_diagnosis_start", params]
-    @diagnoses = Diagnosis.all(:name.like => "%#{params[:name]}%")
-    render :partial => "search_diagnosis_result"
-  end
-=end
-
-  def ajax_search_diagnosis_start
-    @diagnoses = Diagnosis.all(:name.like => "%#{params[:name]}%")
-
-    render "ajax_search_diagnosis_start.js.erb"
-  end
-
-
-  def add_relation
-    @interview = Interview.get(params[:interview_id])
-    diagnosis = Diagnosis.get(params[:diagnosis_id])
-    @interview.diagnoses.push(diagnosis)
-    @interview.save
-
-    render :partial => "diagnoses_list"
-  end
-
-  def delete_relation
-    join = DiagnosisInterview.first(:interview_id => params[:interview_id],
-                                    :diagnosis_id => params[:diagnosis_id])
-
-    join.destroy unless join.nil?
-
-    @interview = Interview.get(params[:interview_id])
-    render :partial => "diagnoses_list"
-  end
-
-  def settings
   end
 end

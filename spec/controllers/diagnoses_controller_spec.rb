@@ -38,7 +38,7 @@ describe DiagnosesController do
   describe "GET show" do
     it "assigns the requested diagnosis as @diagnosis" do
       diagnosis = Diagnosis.create! valid_attributes
-      get :show, :id => diagnosis.id.to_s
+      get :show, :id => diagnosis.id
       assigns(:diagnosis).should eq(diagnosis)
     end
   end
@@ -53,7 +53,7 @@ describe DiagnosesController do
   describe "GET edit" do
     it "assigns the requested diagnosis as @diagnosis" do
       diagnosis = Diagnosis.create! valid_attributes
-      get :edit, :id => diagnosis.id.to_s
+      get :edit, :id => diagnosis.id
       assigns(:diagnosis).should eq(diagnosis)
     end
   end
@@ -125,7 +125,7 @@ describe DiagnosesController do
         diagnosis = Diagnosis.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Diagnosis.any_instance.stub(:save).and_return(false)
-        put :update, :id => diagnosis.id.to_s, :diagnosis => {}
+        put :update, :id => diagnosis.id, :diagnosis => {}
         assigns(:diagnosis).should eq(diagnosis)
       end
 
@@ -133,7 +133,7 @@ describe DiagnosesController do
         diagnosis = Diagnosis.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Diagnosis.any_instance.stub(:save).and_return(false)
-        put :update, :id => diagnosis.id.to_s, :diagnosis => {}
+        put :update, :id => diagnosis.id, :diagnosis => {}
         response.should render_template("edit")
       end
     end
@@ -143,13 +143,13 @@ describe DiagnosesController do
     it "destroys the requested diagnosis" do
       diagnosis = Diagnosis.create! valid_attributes
       expect {
-        delete :destroy, :id => diagnosis.id.to_s
+        delete :destroy, :id => diagnosis.id
       }.to change(Diagnosis, :count).by(-1)
     end
 
     it "redirects to the diagnoses list" do
       diagnosis = Diagnosis.create! valid_attributes
-      delete :destroy, :id => diagnosis.id.to_s
+      delete :destroy, :id => diagnosis.id
       response.should redirect_to(diagnoses_url)
     end
   end

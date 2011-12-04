@@ -4,7 +4,7 @@ describe "diagnoses/show.html.erb" do
   before(:each) do
     @diagnosis = assign(:diagnosis, stub_model(Diagnosis,
       :name => "Name",
-      :describe => "MyText"
+      :description => "MyText"
     ))
   end
 

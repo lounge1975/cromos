@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 Cromos::Application.routes.draw do
 
-  get "menu/index"
-  match "menu/", :to => "menu#index"
   match "menu/interviews/:type", :to => "menu#interviews"
   match "menu/interviews_to_result", :to => "menu#interviews_to_result"
 
+#  resources :diagnoses
   resources :diagnoses do
     collection do
       get 'relation'
@@ -16,10 +14,7 @@ Cromos::Application.routes.draw do
     end
   end
 
-  devise_for :users
-
-  get "welcome/index"
-
+#  resources :interviews
   get 'interviews', :to => 'interviews#index', :as => :user_root
   resources :interviews do
     collection do
@@ -32,6 +27,12 @@ Cromos::Application.routes.draw do
       get 'settings'
     end
   end
+
+  get "menu/index"
+
+  get "welcome/index"
+
+  devise_for :users
 
 #  root :to => "welcome#index"
   root :to => "menu#index"

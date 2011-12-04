@@ -4,9 +4,6 @@
   <tr>
     <th>Disp no</th>
     <th>Note</th>
-    <th>Created at</th>
-    <th>Updated at</th>
-    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,18 +13,13 @@
   <tr>
     <td><%= interview.disp_no %></td>
     <td><%= interview.note %></td>
-    <td><%= interview.created_at %></td>
-    <td><%= interview.updated_at %></td>
     <td><%= link_to 'Show', interview %></td>
     <td><%= link_to 'Edit', edit_interview_path(interview) %></td>
     <td><%= link_to 'Destroy', interview, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'Relation', {:action => :relation, :id => interview.id} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'menu', {:controller => :menu, :action => :index} %> | 
-<%= link_to 'settings', {:controller => :interviews, :action => :settings} %> | 
 <%= link_to 'New Interview', new_interview_path %>

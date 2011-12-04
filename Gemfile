@@ -1,67 +1,37 @@
 source 'http://rubygems.org'
 
-RAILS_VERSION = '~> 3.0.4'
-DM_VERSION    = '~> 1.1.0'
+gem 'rails', '3.0.5'
 
-gem 'activesupport',      RAILS_VERSION, :require => 'active_support'
-gem 'actionpack',         RAILS_VERSION, :require => 'action_pack'
-gem 'actionmailer',       RAILS_VERSION, :require => 'action_mailer'
-gem 'railties',           RAILS_VERSION, :require => 'rails'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'dm-rails',          '~> 1.1.0'
-gem 'dm-sqlite-adapter', DM_VERSION
+gem 'sqlite3'
 
-# You can use any of the other available database adapters.
-# This is only a small excerpt of the list of all available adapters
-# Have a look at
-#
-#  http://wiki.github.com/datamapper/dm-core/adapters
-#  http://wiki.github.com/datamapper/dm-core/community-plugins
-#
-# for a rather complete list of available datamapper adapters and plugins
+# Use unicorn as the web server
+# gem 'unicorn'
 
-# gem 'dm-sqlite-adapter',    DM_VERSION
-# gem 'dm-mysql-adapter',     DM_VERSION
-# gem 'dm-postgres-adapter',  DM_VERSION
-# gem 'dm-oracle-adapter',    DM_VERSION
-# gem 'dm-sqlserver-adapter', DM_VERSION
+# Deploy with Capistrano
+# gem 'capistrano'
 
-gem 'dm-migrations',        DM_VERSION
-gem 'dm-types',             DM_VERSION
-gem 'dm-validations',       DM_VERSION
-gem 'dm-constraints',       DM_VERSION
-gem 'dm-transactions',      DM_VERSION
-gem 'dm-aggregates',        DM_VERSION
-gem 'dm-timestamps',        DM_VERSION
-gem 'dm-observer',          DM_VERSION
+# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+# gem 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'dm-devise', '~> 1.3.0'
-gem 'jquery-rails', '~> 1.0.5'
-gem 'memcache-client', '~> 1.8.5'
+# Bundle the extra gems:
+# gem 'bj'
+# gem 'nokogiri'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'aws-s3', :require => 'aws/s3'
 
+gem 'jquery-rails'
 gem 'thin'
-gem "rake", "0.9.2"
+gem 'devise'
+gem 'memcache-client'
 
-group(:development, :test) do
-
-  # Uncomment this if you want to use rspec for testing your application
-
-  gem "spork", '~> 0.8.5'
-  gem 'rspec-rails', '~> 2.6.0'
-
-  # To get a detailed overview about what queries get issued and how long they take
-  # have a look at rails_metrics. Once you bundled it, you can run
-  #
-  #   rails g rails_metrics Metric
-  #   rake db:automigrate
-  #
-  # to generate a model that stores the metrics. You can access them by visiting
-  #
-  #   /rails_metrics
-  #
-  # in your rails application.
-
-  # gem 'rails_metrics', '~> 0.1', :git => 'git://github.com/engineyard/rails_metrics'
-
-end
-
+# Bundle gems for the local environment. Make sure to
+# put test-only gems in this group so their generators
+# and rake tasks are available in development mode:
+ group :development, :test do
+#   gem 'webrat'
+   gem 'rspec-rails'
+ end

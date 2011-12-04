@@ -1,5 +1,0 @@
-<p>this is list</p>
-
-<% @interview.diagnoses.each do |diagnosis| %>
-<p><%= diagnosis.name %>:<%= link_to_function "delete", "common.deleteRelation(#{diagnosis.id})" %></p>
-<% end %>
